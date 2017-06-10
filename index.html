@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <title>Test GitHub api</title>
+</head>
+
+<body>
+  <!--Header section-->
+  <header class="header">
+    <h1 class="task-name">GitHub &amp; own js plugin</h1>
+  </header>
+  <!--End header section-->
+
+  <!--Main section-->
+  <main class="main">
+    <form class="new-request" id="request">
+      <div class="inputs">
+        <!--Method-->
+        <div class="form-group column">
+          <label>Method
+            <select class="form-control" id="method">
+              <option>GET</option>
+              <option>HEAD</option>
+              <option>POST</option>
+              <option>PUT</option>
+            </select>
+          </label>
+        </div>
+        <!--URL-->
+        <div class="form-group column">
+          <label>URL
+            <div class="input-group">
+              <div class="input-group-addon">https://api.github.com/</div>
+              <input type="text" class="form-control" id="url" placeholder="users">
+            </div>
+          </label>
+        </div>
+        <!--Headers-->
+        <div class="form-group column request-headers">
+          <label>Header
+            <input type="button" class="form-control btn" id="add-header" value="Add header">
+          </label>
+          <div class="request-header">
+            <button class="btn remove-header" type="submit">R</button>
+            <input type="text" class="form-control header-name" placeholder="header">
+            <input type="text" class="form-control header-value" placeholder="value">
+          </div>
+        </div>
+        <!--Data-->
+        <div class="form-group column request-data">
+          <label>Body
+            <input type="button" class="form-control btn" id="add-data" value="Add data">
+          </label>
+          <div class="data">
+            <button class="btn remove-header" type="submit">R</button>
+            <input type="text" class="form-control key" placeholder="key">
+            <input type="text" class="form-control value" placeholder="value">
+          </div>
+        </div>
+      </div>
+      </div>
+      </div>
+      <input class="btn btn-add" type="submit" value="Send" id="send">
+    </form>
+
+    <!--Response-->
+    <textarea class="form-control response-field" rows="30" id="response"></textarea>
+
+  </main>
+  <!--End main-->
+
+  <!--Footer section-->
+  <footer class="footer">
+    &copy;Copyright 2017 <a href="https://www.linkedin.com/in/rostyslav-moroziuk/">Rostyslav Moroziuk</a>
+  </footer>
+  <!--End footer section-->
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="js/script.js"></script>
+</body>
+
+</html>

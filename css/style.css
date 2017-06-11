@@ -5,10 +5,11 @@
 }
 
 body,
-.btn-add,
-.btn-add:hover,
-.btn-add:focus,
-.form-control {
+.btn,
+.btn:hover,
+.btn:focus,
+.form-control,
+.remove {
   color: white;
 }
 
@@ -45,10 +46,9 @@ body {
 .btn-add,
 .btn-add:focus {
   align-self: flex-end;
-  background-color: #269cf3;
 }
 
-.btn-add:hover {
+.btn:hover {
   background-color: #273142;
 }
 
@@ -56,23 +56,46 @@ body {
 .request-headers,
 .request-header,
 .request-data,
-.data  {
+.data {
   display: flex;
 }
 
 .inputs .form-group {
-  width: 23%;
   padding-right: 5px;
+}
+
+.form-group.request-data {
+  padding-right: 0;
+}
+
+.method-col {
+  width: 10%;
+}
+
+.url-col,
+.request-headers,
+.request-data {
+  width: 30%;
+}
+
+.url-start {
+  padding: 0;
+  color: #999;
 }
 
 .inputs {
   justify-content: space-between;
 }
 
-.form-control {
+.form-control,
+.remove {
   background-color: #222c3c;
   border: 1px solid #1b2431;
   border-radius: 5px;
+}
+
+.btn {
+  background-color: #269cf3;
 }
 
 .input-group-addon {
@@ -81,20 +104,13 @@ body {
 }
 
 .request-headers,
-.request-data  {
+.request-data {
   flex-direction: column;
 }
 
 .request-header,
 .data {
   justify-content: space-between;
-}
-
-.request-header .header-name,
-.request-header .header-valuem
-.data .key,
-.data .value {
-  width: 40%;
 }
 
 .remove-header {

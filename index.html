@@ -22,7 +22,7 @@
     <form class="new-request" id="request">
       <div class="inputs">
         <!--Method-->
-        <div class="form-group column">
+        <div class="form-group column method-col">
           <label>Method
             <select class="form-control" id="method">
               <option>GET</option>
@@ -33,10 +33,10 @@
           </label>
         </div>
         <!--URL-->
-        <div class="form-group column">
+        <div class="form-group column url-col">
           <label>URL
             <div class="input-group">
-              <div class="input-group-addon">https://api.github.com/</div>
+              <div class="input-group-addon url-start">https://api.github.com/</div>
               <input type="text" class="form-control" id="url" placeholder="users">
             </div>
           </label>
@@ -47,7 +47,7 @@
             <input type="button" class="form-control btn" id="add-header" value="Add header">
           </label>
           <div class="request-header">
-            <button class="btn remove-header" type="submit">R</button>
+            <button class="btn remove" type="submit"><span class="glyphicon glyphicon-minus"></span></button>
             <input type="text" class="form-control header-name" placeholder="header">
             <input type="text" class="form-control header-value" placeholder="value">
           </div>
@@ -58,7 +58,7 @@
             <input type="button" class="form-control btn" id="add-data" value="Add data">
           </label>
           <div class="data">
-            <button class="btn remove-header" type="submit">R</button>
+            <button class="btn remove" type="submit"><span class="glyphicon glyphicon-minus"></span></button>
             <input type="text" class="form-control key" placeholder="key">
             <input type="text" class="form-control value" placeholder="value">
           </div>

@@ -25,10 +25,10 @@
         <div class="form-group column method-col">
           <label>Method
             <select class="form-control" id="method">
-              <option>GET</option>
-              <option>HEAD</option>
-              <option>POST</option>
-              <option>PUT</option>
+              <option id="method-get">GET</option>
+              <option id="method-head">HEAD</option>
+              <option id="method-post">POST</option>
+              <option id="method-put">PUT</option>
             </select>
           </label>
         </div>
@@ -37,7 +37,7 @@
           <label>URL
             <div class="input-group">
               <div class="input-group-addon url-start">https://api.github.com/</div>
-              <input type="text" class="form-control" id="url" placeholder="users">
+              <input type="text" class="form-control" id="url" placeholder="users" required>
             </div>
           </label>
         </div>
@@ -46,22 +46,22 @@
           <label>Header
             <input type="button" class="form-control btn" id="add-header" value="Add header">
           </label>
-          <div class="request-header">
+          <!--<div class="request-header">
             <button class="btn remove" type="submit"><span class="glyphicon glyphicon-minus"></span></button>
             <input type="text" class="form-control header-name" placeholder="header">
             <input type="text" class="form-control header-value" placeholder="value">
-          </div>
+          </div>-->
         </div>
         <!--Data-->
         <div class="form-group column request-data">
           <label>Body
-            <input type="button" class="form-control btn" id="add-data" value="Add data">
+            <input type="button" class="form-control btn disabled" id="add-data" value="Add data">
           </label>
-          <div class="data">
+          <!--<div class="data">
             <button class="btn remove" type="submit"><span class="glyphicon glyphicon-minus"></span></button>
             <input type="text" class="form-control key" placeholder="key">
             <input type="text" class="form-control value" placeholder="value">
-          </div>
+          </div>-->
         </div>
       </div>
       </div>
@@ -70,7 +70,7 @@
     </form>
 
     <!--Response-->
-    <textarea class="form-control response-field" rows="30" id="response"></textarea>
+    <textarea class="form-control response-field" rows="30" id="response" readonly></textarea>
 
   </main>
   <!--End main-->
@@ -83,6 +83,7 @@
   <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
     crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="js/ajax.js"></script>
   <script src="js/script.js"></script>
 </body>
 

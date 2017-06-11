@@ -9,7 +9,8 @@ body,
 .btn:hover,
 .btn:focus,
 .form-control,
-.remove {
+.remove,
+.response-field:read-only {
   color: white;
 }
 
@@ -35,6 +36,8 @@ body {
 
 .task-name {
   font-size: 35px;
+  border-bottom: 3px solid white;
+  padding-bottom: 20px;
 }
 
 .new-request {
@@ -88,13 +91,15 @@ body {
 }
 
 .form-control,
-.remove {
+.remove,
+.response-field:read-only {
   background-color: #222c3c;
   border: 1px solid #1b2431;
   border-radius: 5px;
 }
 
-.btn {
+.btn,
+.btn.disabled:hover {
   background-color: #269cf3;
 }
 

@@ -151,7 +151,5 @@
     e.preventDefault();
   }
 
-  
-
   init();
 })();

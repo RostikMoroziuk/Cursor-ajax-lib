@@ -31,6 +31,7 @@
   }
 
   ajax.post = function (url, data, headers) {
+    //data in format key=value&key1=value1
     var rd = new RequestDescriptor;
     var xhr = new XMLHttpRequest;
     setHeaders(xhr, headers);
@@ -38,7 +39,7 @@
     xhr.onload = function () {
       activateRequestDescriptor(xhr, rd);
     }
-    xhr.send(JSON.stringify(data));
+    xhr.send(data);
     return rd;
   }
 

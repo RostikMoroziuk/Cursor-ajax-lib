@@ -13,9 +13,9 @@
     ajax({
       method: "GET",
       url: "https://api.github.com/users"
-    }).done(function(result) {
+    }).done(function (result) {
       //formating JSON
-      $("#response").text(result);
+      setTextarea(result);
     })
   }
 
@@ -161,6 +161,86 @@
   //AJAX request
   function makeRequest(e) {
     e.preventDefault();
+
+    // clearTextarea();
+
+    var method = $("#method option:selected").text();
+    console.log("method", method);
+    var url = "https://api.github.com/" + $("#url").val();
+    console.log("url", url);
+    var headers = parseHeaders();
+    console.log("headers", headers)
+    var data = parseData();
+    console.log("data", data);
+
+    switch (method) {
+      case "GET":
+        ajax.get(url, headers).done(function (result) {
+          setTextarea(result);
+        })
+        break;
+      case "HEAD":
+        ajax.get(url, headers).done(function (result) {
+          setTextarea(result);
+        })
+        break;
+      case "PUT":
+        ajax.get(url, headers).done(function (result) {
+          setTextarea(result);
+        })
+        break;
+      case "POST":
+        ajax.get(url, headers).done(function (result) {
+          setTextarea(result);
+        })
+        break;
+      default: 
+        alert("Not correct method selected");
+    }
+  }
+
+  function clearTextarea() {
+    $("#response").text("");
+  }
+
+  function setTextarea(text) {
+    $("#response").text(text);
+  }
+
+  //Parse headers from headers-field
+  function parseHeaders() {
+    var headersFields = $(".request-header");
+    var headers = null;
+    if (headersFields.length > 0) {
+      headers = headersFields.map(function (field) {
+        var headerName = $(field).find(".header-name").val();
+        var headerValue = $(field).find(".header-value").val();
+        return {
+          name: headerName,
+          value: headerValue
+        };
+      });
+    }
+
+    return headers;
+  }
+
+  //Parse data from data-field
+  function parseData() {
+    var dataFields = $(".data");
+    var data = null;
+    if (dataFields.length > 0) {
+      data = dataFields.map(function (field) {
+        var keyName = $(field).find(".key").val();
+        var keyValue = $(field).find(".value").val();
+        //return query string
+        var query = "" + encodeURIComponent(keyName) + "=" + encodeURIComponent(keyValue);
+        return query;
+      });
+      //return query string
+      return data.join("&");
+    }
+    return data;
   }
 
   init();

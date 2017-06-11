@@ -165,13 +165,9 @@
     // clearTextarea();
 
     var method = $("#method option:selected").text();
-    console.log("method", method);
     var url = "https://api.github.com/" + $("#url").val();
-    console.log("url", url);
     var headers = parseHeaders();
-    console.log("headers", headers)
     var data = parseData();
-    console.log("data", data);
 
     switch (method) {
       case "GET":
@@ -180,17 +176,17 @@
         })
         break;
       case "HEAD":
-        ajax.get(url, headers).done(function (result) {
+        ajax.head(url, headers).done(function (result) {
           setTextarea(result);
         })
         break;
       case "PUT":
-        ajax.get(url, headers).done(function (result) {
+        ajax.put(url, headers).done(function (result) {
           setTextarea(result);
         })
         break;
       case "POST":
-        ajax.get(url, headers).done(function (result) {
+        ajax.post(url, data, headers).done(function (result) {
           setTextarea(result);
         })
         break;
@@ -210,9 +206,10 @@
   //Parse headers from headers-field
   function parseHeaders() {
     var headersFields = $(".request-header");
+    console.log(typeof headersFields)
     var headers = null;
     if (headersFields.length > 0) {
-      headers = headersFields.map(function (field) {
+      headers = headersFields.toArray().map(function (field) {
         var headerName = $(field).find(".header-name").val();
         var headerValue = $(field).find(".header-value").val();
         return {
@@ -230,7 +227,7 @@
     var dataFields = $(".data");
     var data = null;
     if (dataFields.length > 0) {
-      data = dataFields.map(function (field) {
+      data = dataFields.toArray().map(function (field) {
         var keyName = $(field).find(".key").val();
         var keyValue = $(field).find(".value").val();
         //return query string

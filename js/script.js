@@ -5,6 +5,18 @@
     $("#add-header").click(addHeader);
     $("#add-data").click(addBody);
     $("#send").click(makeRequest);
+
+    getUsers();
+  }
+
+  function getUsers() {
+    ajax({
+      method: "GET",
+      url: "https://api.github.com/users"
+    }).done(function(result) {
+      debugger;
+      $("#response").text(result);
+    })
   }
 
   function methodChange() {

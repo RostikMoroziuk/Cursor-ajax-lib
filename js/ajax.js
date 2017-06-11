@@ -15,6 +15,7 @@
       activateRequestDescriptor(xhr, rd);
     }
     xhr.send();
+    return rd;
   }
 
   ajax.head = function (url, headers) {
@@ -26,6 +27,7 @@
       activateRequestDescriptor(xhr, rd);
     }
     xhr.send();
+    return rd;
   }
 
   ajax.post = function (url, data, headers) {
@@ -37,6 +39,7 @@
       activateRequestDescriptor(xhr, rd);
     }
     xhr.send(JSON.stringify(data));
+    return rd;
   }
 
   ajax.put = function (url, headers) {
@@ -48,14 +51,17 @@
       activateRequestDescriptor(xhr, rd);
     }
     xhr.send();
+    return rd;
   }
 
   function activateRequestDescriptor(xhr, rd) {
+    debugger;
     //if RequestDescriptor has handler
     if (rd._onrequestdone) {
       //if request finish successed
       if (xhr.status == 200) {
         rd.setState(ajax.SUCCESS);
+        rd.setResult(xhr.responseText);
       } else {
         rd.setState(ajax.FAIL);
       }
@@ -81,7 +87,7 @@
     if (attr.method) {
       method = attr.method.toUpperCase();
     } else {
-      method = GET;
+      method = "GET";
     }
     var url = attr.url;
     var headers = attr.headers;
@@ -111,24 +117,32 @@
     }
 
     this._onrequestdone = null;
+    this._result = null;
   }
 
   RequestDescriptor.prototype.done = function (cb) {
+    debugger;
     var rd = new RequestDescriptor;
     this._onrequestdone = function () {
+      debugger;
       if (this._state) {
-        cb();
+        cb(this._result);
         rd._state = ajax.SUCCESS;
       } else {
         alert("AJAX request was failed");
         rd._state = ajax.FAIL;
       }
     }
+    //return new RD for chaining
     return rd;
   }
 
   RequestDescriptor.prototype.setState = function (state) {
     this._state = state;
+  }
+
+  RequestDescriptor.prototype.setResult = function (result) {
+    this._result = result;
   }
 
   window.ajax = ajax;

@@ -9,8 +9,8 @@
   ajax.get = function (url, headers) {
     var rd = new RequestDescriptor;
     var xhr = new XMLHttpRequest;
-    setHeaders(xhr, headers);
     xhr.open("GET", url);
+    setHeaders(xhr, headers);
     xhr.onload = function () {
       activateRequestDescriptor(xhr, rd);
     }
@@ -21,8 +21,8 @@
   ajax.head = function (url, headers) {
     var rd = new RequestDescriptor;
     var xhr = new XMLHttpRequest;
-    setHeaders(xhr, headers);
     xhr.open("HEAD", url);
+    setHeaders(xhr, headers);
     xhr.onload = function () {
       activateRequestDescriptor(xhr, rd);
     }
@@ -34,8 +34,8 @@
     //data in format key=value&key1=value1
     var rd = new RequestDescriptor;
     var xhr = new XMLHttpRequest;
-    setHeaders(xhr, headers);
     xhr.open("POST", url);
+    setHeaders(xhr, headers);
     xhr.onload = function () {
       activateRequestDescriptor(xhr, rd);
     }
@@ -46,8 +46,8 @@
   ajax.put = function (url, headers) {
     var rd = new RequestDescriptor;
     var xhr = new XMLHttpRequest;
-    setHeaders(xhr, headers);
     xhr.open("PUT", url);
+    setHeaders(xhr, headers);
     xhr.onload = function () {
       activateRequestDescriptor(xhr, rd);
     }

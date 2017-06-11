@@ -93,6 +93,9 @@
         <input type="text" class="form-control key" placeholder="key">
         <input type="text" class="form-control value" placeholder="value">
       </div>*/
+    if($(this).has(".disabled")) {
+      return;
+    }
     var div = makeElement({
       name: "div",
       class: "data"
@@ -135,7 +138,6 @@
   }
 
   function removeData() {
-    console.log("r");
     $(this).closest(".data").remove();
   }
 
@@ -206,7 +208,6 @@
   //Parse headers from headers-field
   function parseHeaders() {
     var headersFields = $(".request-header");
-    console.log(typeof headersFields)
     var headers = null;
     if (headersFields.length > 0) {
       headers = headersFields.toArray().map(function (field) {

@@ -55,7 +55,6 @@
   }
 
   function activateRequestDescriptor(xhr, rd) {
-    debugger;
     //if RequestDescriptor has handler
     if (rd._onrequestdone) {
       //if request finish successed
@@ -66,6 +65,17 @@
         rd.setState(ajax.FAIL);
       }
       rd._onrequestdone();
+    } else {
+      //Timeout for adding _onrequestdone method
+      setTimeout(function () {
+        if (xhr.status == 200) {
+          rd.setState(ajax.SUCCESS);
+          rd.setResult(xhr.responseText);
+        } else {
+          rd.setState(ajax.FAIL);
+        }
+        rd._onrequestdone();
+      }, 1000);
     }
   }
 
@@ -121,10 +131,8 @@
   }
 
   RequestDescriptor.prototype.done = function (cb) {
-    debugger;
     var rd = new RequestDescriptor;
     this._onrequestdone = function () {
-      debugger;
       if (this._state) {
         cb(this._result);
         rd._state = ajax.SUCCESS;

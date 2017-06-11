@@ -14,7 +14,7 @@
       method: "GET",
       url: "https://api.github.com/users"
     }).done(function(result) {
-      debugger;
+      //formating JSON
       $("#response").text(result);
     })
   }
